@@ -32,6 +32,27 @@ code {
   font-size: 20px !important;
 }
 
+#cartPageIconPlus{
+  color:green;
+  font-size: 17px !important;
+  margin-top: 4px !important;
+  
+}
+#cartPageIconMinus{
+  color:peru;
+  font-size: 16px !important;
+  margin-top: 4px !important;
+
+}
+#cartPage_defQ{
+  font-weight: bolder !important;
+
+}
+#cartPageQuantity_text{
+  font-size: 20px !important;
+  margin-top: -4px !important;
+  font-weight: bold !important;
+}
 .nav-link{
    color:  white !important ;
    /* text-transform: uppercase !important; */
@@ -137,6 +158,33 @@ select{
   
 }
 
+
+custom_h1{
+
+  font-size: 16px !important;
+  flex-wrap: wrap !important;
+  flex-shrink: initial !important;
+  font-family: "monospace" ;
+}
+.type1_text{
+
+   display: flex;
+   font-weight: bold !important;
+   padding-top: 10px !important;
+   text-align-last: left !important;
+}
+
+.type2_text{
+  
+  display: flex;
+  text-align-last: left !important;
+
+}
+
+.UnitpriceFlex{
+
+   padding: 10px !important;
+}
 /* Loading CSS ANIMATION  */
 
 

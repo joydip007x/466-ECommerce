@@ -6,6 +6,7 @@ export const addToCart=(product, quantity , varient )=>(dispatch,getState)=>{
           _id : product._id ,
           image: product.image ,
           varient : varient ,
+          varients : product.varients,
           quantity : quantity ,
           prices : product.prices ,
           price : product.prices[0][varient] * quantity ,
