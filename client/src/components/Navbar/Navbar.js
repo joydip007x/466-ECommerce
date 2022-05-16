@@ -10,7 +10,7 @@ export default function Navbar() {
   return (
     <div className="whole_navbar">
       <nav className="navbar nav_component navbar-expand-lg  shadow-lg p-3 mb-5   ">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="/">
           <b style={title_style}>W</b>ill
           <b style={title_style}> I</b>
           <b style={space_keep}>""</b>

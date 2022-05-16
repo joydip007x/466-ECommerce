@@ -38,11 +38,27 @@ code {
   margin-top: 4px !important;
   
 }
+
 #cartPageIconMinus{
   color:peru;
   font-size: 16px !important;
   margin-top: 4px !important;
 
+}
+
+#noItemsinCart{
+   
+  font-family:Montserrat !important;
+  font-size: medium;
+  font-weight: bolder;
+  margin-top: 150px !important;
+
+
+}
+#cartPageIconTrash{
+  color:red;
+  font-size: 17px !important;
+  
 }
 #cartPage_defQ{
   font-weight: bolder !important;
@@ -52,6 +68,13 @@ code {
   font-size: 20px !important;
   margin-top: -4px !important;
   font-weight: bold !important;
+}
+
+#cartPageProdImg{
+
+  height: 80px !important;
+  width: 80px !important;
+
 }
 .nav-link{
    color:  white !important ;
