@@ -1,25 +1,49 @@
 import React from 'react'
 import { useSelector ,useDispatch} from 'react-redux';
 
-import { addToCart } from '../actions/cartActions';
+import { addToCart,deleteFromCart } from '../actions/cartActions';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Button } from 'react-bootstrap';
 
 export default function CartScreen() {
 
+
+  const notify = (callId,msg) => {
+
+    toast.clearWaitingQueue({containerId:'default'});
+    if(callId==='limit'){
+      return toast.info(msg, {position: toast.POSITION.TOP_CENTER,autoClose: 1000})
+    }
+    toast('Default!', { position: toast.POSITION.BOTTOM_LEFT })
+
+  }
   const cartState= useSelector(state=>state.cartReducer)
   const cartItems= cartState.cartItems
+
   const dispatch=useDispatch()
   // const temp="JSON.stringify(item.prices[0]).split(',')[0].split(':')[1]"
 
- function increaseCount(item){
+  function increaseCount(item){
+    if(item.quantity===5) 
+        return notify('limit',"We deliver maximum of 5 quantities ")
     dispatch(addToCart(item,Math.min(item.quantity+1,5),item.varient))
- }
- function decreaseCount(item){
-  dispatch(addToCart(item,Math.max(item.quantity-1,1),item.varient))
-}
+  }
+  function decreaseCount(item){
+    if(item.quantity===1) 
+       return notify('limit',"Can't Order Less than 1 quantities")
+    dispatch(addToCart(item,Math.max(item.quantity-1,1),item.varient))
+  }
+  function removeItemCart(item){
+      dispatch(deleteFromCart(item))
+  }
+
+  var subtotal=cartItems.reduce((x,item)=>x+item.price,0)
 
 
   return (
     <div>
+      <ToastContainer limit={1} containerId="default"/>
         <div className='row justify-content-center'>
 
            <div className='col-md-6'>
@@ -79,7 +103,7 @@ export default function CartScreen() {
 
                 <div>
                 <i className=' fa fa-trash  mt-5 w-100' 
-                  id='cartPageIconTrash' aria-hidden="true">
+                  id='cartPageIconTrash' aria-hidden="true" onClick={()=>removeItemCart(item)}>
 
                   </i>
                 </div>
@@ -90,11 +114,16 @@ export default function CartScreen() {
               
            
             </div>
+           
+           { 
+           cartItems.length !=0  && 
+           <div className='col-md-4 flex-container subtotal text-right'>
 
-           <div className='col-md-4'>
-
-
+                  <h1 className='type3_text'>Subtotal : { subtotal} Bdt/=</h1>
+                  <Button className=' btn_checkout'>Check Out</Button>
            </div>
+
+            }
 
         </div>
     </div>

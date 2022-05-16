@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -203,7 +203,32 @@ custom_h1{
   text-align-last: left !important;
 
 }
+.type3_text{
 
+  font-family: 'Koulen', cursive;  
+  position: absolute!important;
+  font-size: 30px;
+  left: 30%;
+  top: 50%;
+}
+
+.subtotal{
+  
+  position: relative!important;
+  transform: translateX(center);
+  transform: translateY(center);
+
+}
+.btn_checkout{
+
+  height: min-content;
+  width:  auto;
+  position: absolute!important;
+  left: 40%;
+  top: 50%;
+  transform: translateY(100%);
+
+}
 .UnitpriceFlex{
 
    padding: 10px !important;

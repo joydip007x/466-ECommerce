@@ -14,6 +14,7 @@ export default function Product({product}) {
   const handleShow = () => setShow(true);
 
   const randomInt=Math.floor(Math.random() * (10 - 1 + 1)) + 1;
+  const defaultVarient=product.varients[0]
   //console.log(randomInt);
 
   let CalculatedPrice= 0;
@@ -24,8 +25,7 @@ export default function Product({product}) {
   const dispatch= useDispatch();
 
   function addToCartHandle(){
-
-     dispatch(addToCart(product,quantity,varient));
+     dispatch(addToCart(product,quantity,varient!='null' ? varient:defaultVarient));
   }
 
   return (
