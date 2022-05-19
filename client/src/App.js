@@ -7,6 +7,9 @@ import {BrowserRouter, Route, Link, Switch} from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar';
 import Homescreen from './views/Homescreen';
 import CartScreen from './views/CartScreen';
+import UserLogin from './views/UserLogin';
+import UserRegister from './views/UserRegister';
+
 
 function App() {
   return (
@@ -16,6 +19,9 @@ function App() {
       <BrowserRouter>
           <Route path="/"     exact component={Homescreen} />
           <Route path="/cart" exact component={CartScreen} />
+          <Route path="/register" exact component={UserRegister} />
+          <Route path="/login" exact component={UserLogin} />
+
       </BrowserRouter>
 
     </div>

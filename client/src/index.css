@@ -21,6 +21,33 @@ code {
   position: static;
 }
 
+input{
+  margin-top: 10px !important;;
+  box-shadow: #000 !important;
+  color: #000 !important;
+  accent-color: calc();
+}
+input:focus{
+
+  border-color: #000 !important;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px brown !important;
+  outline: 0 none !important;
+}
+.registerButton{
+   width: 105px !important;
+   border-radius: 5px !important;
+   background-color: black!important;
+   color: antiquewhite !important;
+   box-shadow: none !important;
+
+}
+
+.registerButton:active{
+
+  color: black !important;
+  background-color: antiquewhite !important;
+ 
+}
 #nav_link_cart{
 
    padding-right: 5px !important ;
@@ -36,7 +63,7 @@ code {
   color:green;
   font-size: 17px !important;
   margin-top: 4px !important;
-  
+  position: relative;
 }
 
 #cartPageIconMinus{
@@ -45,14 +72,23 @@ code {
   margin-top: 4px !important;
 
 }
-
+#cartPageIconPlus:active ,#cartPageIconMinus:active{
+  /* background-color: #aca5a5; */
+  color: #000 !important;
+  font-weight: 900;
+}
+#cartPageIconPlus:hover,#cartPageIconMinus:hover {
+  color: #000 !important;
+  font-weight: 900;
+  cursor: pointer;
+  
+}
 #noItemsinCart{
    
   font-family:Montserrat !important;
   font-size: medium;
   font-weight: bolder;
   margin-top: 150px !important;
-
 
 }
 #cartPageIconTrash{
@@ -75,6 +111,15 @@ code {
   height: 80px !important;
   width: 80px !important;
 
+}
+/*center maker */
+#uReginputHolder{
+
+  position: absolute!important;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  
 }
 .nav-link{
    color:  white !important ;
@@ -100,6 +145,15 @@ code {
 .html_h1{
 
   font-size: 17px !important;
+  flex-wrap: wrap !important;
+  flex-shrink: initial !important;
+  font-family: "monospace" ;
+  
+}
+
+html_banner{
+
+  font-size: 23px !important;
   flex-wrap: wrap !important;
   flex-shrink: initial !important;
   font-family: "monospace" ;
