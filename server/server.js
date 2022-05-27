@@ -1,11 +1,11 @@
 const express = require('express');
 
-const Products= require("./models/productModel");
-
 const db=require('./db')
 const app = express();
 
 const ProductsRoute = require('./routes/productRoute')
+const UserRoute = require('./routes/userRoute')
+
 app.use(express.json())
 
 
@@ -14,6 +14,7 @@ app.get("/",(req,res)=>{
 })
 
 app.use('/storeAPI/products',ProductsRoute)
+app.use('/storeAPI/users/',UserRoute)
 
 const port = process.env.PORT || 8000;
 
