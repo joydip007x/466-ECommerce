@@ -51,7 +51,7 @@ export default function UserLogin() {
                       <div class="load_hold" > <div class="dots-bars-3">  </div></div>
                     }
                     {
-                       successx && !loadingx && (notify('reg',"Registration Successful",2000) )
+                       successx && !loadingx && (notify('reg',"Login Successful",1500) )
                        
                     }
                    <input type={'email'} placeholder="Email" className='form-control'

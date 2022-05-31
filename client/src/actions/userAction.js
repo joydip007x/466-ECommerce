@@ -1,4 +1,5 @@
 import axios from 'axios'
+const delay = ms => new Promise(res => setTimeout(res, ms));
 
 export const registerUser=(user)=>async dispatch=>{
 
@@ -23,6 +24,9 @@ export const loginUser=(user)=>async dispatch=>{
         const response=await axios.post('/storeAPI/users/login', user)
         console.log("userActionLogin",response)
         dispatch({type:'USER_LOGIN_SUCCESS',payload:response.data})
+        localStorage.setItem('currentUser',JSON.stringify(response.data))
+        await delay(3000);
+        window.location.href='/'
     }
     catch(error){
         dispatch({type:'USER_LOGIN_FAILED',payload:error})
