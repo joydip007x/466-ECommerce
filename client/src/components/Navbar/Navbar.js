@@ -1,9 +1,14 @@
 import React from 'react'
 import { useSelector,useDispatch} from 'react-redux'
+// import bootstrap from '../../../node_modules/bootstrap/dist/js/bootstrap.bundle.js'
+import { logoutUser } from '../../actions/userAction'
 
 export default function Navbar() {
 
   const cartState = useSelector(state=>state.cartReducer)
+  const userState = useSelector(state=>state.loginUserReducer)
+  const {currentUser}= userState
+  const dispatch= useDispatch()
 
   const title_style={fontWeight:"bold",fontSize:"25px"  }
   const space_keep={visibility: 'hidden'}
@@ -17,7 +22,7 @@ export default function Navbar() {
           <b style={title_style}>S</b>ell
           <b style={title_style}> T</b>omato?
         </a>
-        <button
+           <button
           className="navbar-toggler"
           type="button"
           data-toggle="collapse"
@@ -26,27 +31,57 @@ export default function Navbar() {
           aria-expanded="false"
           aria-label="Toggle navigation"
          >
-         <span className="navbar-toggler-icon"></span>
+         <span className="navbar-toggler-icon"  data-bs-toggle="dropdown"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
 
+      
         <link rel="stylesheet" 
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
          
-          <ul className="navbar-nav ms-auto">
-          <li className="nav-item" id="nav_link_cart">
-              <a className="nav-link " href="/cart" >
-              Cart 
-              <i class="fa fa-shopping-cart" ></i>
-                 { cartState.cartItems.length }
+         <li className="nav-item" id="nav-home-icon">
+              <a className="nav-link " href="/" > 
+              <i className="fa fa-home" ></i>
               </a>
-            </li>
-            
+        </li>
+
+          <ul className="navbar-nav ms-auto">
+          
+            { currentUser ? 
+            (
+
+              <div class="dropdown">
+              <a class="userBtn dropdown-toggle  "  id="dropdownMenu2" data-bs-toggle="dropdown" >
+              <i className="fa fa-user" ></i>{currentUser.name.slice(0,6)}
+              </a>
+              <ul class="dropdown-menu"  aria-labelledby="dropdownMenu">
+                <a><button class="dropdown-item" type="button"  
+                onClick={()=>{ window.location.href='/cart'}}
+                href="/cart">Orders</button></a>
+                <a><button class="dropdown-item" type="button"
+                onClick={()=>dispatch(logoutUser())}
+                >LogOut</button></a>
+                {/* <li><button class="dropdown-item" type="button">Something else here</button></li> */}
+              </ul>
+            </div>
+              
+
+            ):  
             <li className="nav-item ">
               <a className="nav-link" href="/login">
                 Login 
               </a>
             </li>
+            
+            }
+            <li className="nav-item" id="nav_link_cart">
+              <a className="nav-link " href="/cart" >
+              Cart 
+              <i className="fa fa-shopping-cart" ></i>
+                 { cartState.cartItems.length }
+              </a>
+            </li>
+
            
             
           </ul>

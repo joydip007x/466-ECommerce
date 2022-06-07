@@ -49,7 +49,7 @@ export default function UserRegister() {
     <div>
          <ToastContainer limit={2} />
         <div className='row justify-content-center'>
-            <div className='col-md-5' id='uReginputHolder' validate>
+            <div className='col-md-5 shadow-lg p-3 mb-5 bg-white rounded' id='uReginputHolder' validate>
 
                 <html_banner className="text-center"> Register User</html_banner>
                 <div>
@@ -72,10 +72,14 @@ export default function UserRegister() {
                    <button type="button" className='btn-outline-dark registerButton mt-3'
                    onClick={ register }
                    >Register</button>
+                   <p></p>
+                  
                 </div>
-
             </div>
+            <a href='/login' id='clicktoLog'> Already a <b>Registered</b> User ? </a>
+
         </div>
+        
     </div>
   )
 }

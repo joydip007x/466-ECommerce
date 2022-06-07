@@ -25,10 +25,17 @@ export const loginUser=(user)=>async dispatch=>{
         console.log("userActionLogin",response)
         dispatch({type:'USER_LOGIN_SUCCESS',payload:response.data})
         localStorage.setItem('currentUser',JSON.stringify(response.data))
-        await delay(3000);
+        await delay(1500);
         window.location.href='/'
     }
     catch(error){
         dispatch({type:'USER_LOGIN_FAILED',payload:error})
     }
+}
+
+export const logoutUser=()=>dispatch=>{
+
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('cartItems');
+    window.location.href='/login'
 }

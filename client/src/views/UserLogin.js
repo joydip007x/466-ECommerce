@@ -11,7 +11,19 @@ export default function UserLogin() {
   const [password,setPass]=useState('');
 
   const dispatch=useDispatch()
+  const delay = ms => new Promise(res => setTimeout(res, ms));
 
+  useEffect(() => {
+    
+      if (localStorage.getItem('currentUser')){
+
+        setTimeout(this, 500)
+        notify('',"Fill Up Every Field Correctly",400)
+        window.location.href='/'
+      }
+    
+  }, [])
+  
   const {loadingx,successx}= useSelector( state=>state.loginUserReducer);
 
   const notify = (callId,msg,timex) => {
@@ -42,7 +54,7 @@ export default function UserLogin() {
         
          <ToastContainer limit={2} />
         <div className='row justify-content-center'>
-            <div className='col-md-5' id='uReginputHolder' validate>
+            <div className='col-md-5 shadow-lg p-3 mb-5 bg-white rounded ' id='uReginputHolder' validate>
 
                 <html_banner className="text-center"> LOGIN </html_banner>
                 <div>
@@ -51,7 +63,7 @@ export default function UserLogin() {
                       <div class="load_hold" > <div class="dots-bars-3">  </div></div>
                     }
                     {
-                       successx && !loadingx && (notify('reg',"Login Successful",1500) )
+                       successx && !loadingx && (notify('reg',"Login Successful",1200) )
                        
                     }
                    <input type={'email'} placeholder="Email" className='form-control'
@@ -61,10 +73,11 @@ export default function UserLogin() {
                   
                    <button type="button" className='btn-outline-dark registerButton mt-3'
                    onClick={ loginWithUser }
-                   >Register</button>
+                   >SUBMIT</button>
                 </div>
 
             </div>
+            <a href='/register' id='clicktoLog'> <b>New</b> User ? Create an Account! </a>
         </div>
     </div>
   )

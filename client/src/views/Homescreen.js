@@ -18,7 +18,7 @@ export default function Homescreen() {
   
   return (
     <div>
-        <div className='row justify-content-center'>
+        <div className='row justify-content-center homescreenContainer'>
 
           { loading ? (<div class="load_hold"> <div class="dots-bars-3">  </div></div>): 
             error ? (<html_h1>Wrong</html_h1>):
