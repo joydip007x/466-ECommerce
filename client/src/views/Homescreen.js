@@ -2,6 +2,8 @@ import React,{useState,useEffect} from 'react'
 import {useDispatch,useSelector} from 'react-redux'
 import {getAllProducts} from '../actions/productAction'
 import Product from '../components/SingleProduct/Product'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Homescreen() {
 
@@ -9,13 +11,28 @@ export default function Homescreen() {
 
   const productState= useSelector( state=>state.getAllProductsReducer)
 
+  function timeout(delay) {
+    return new Promise( async res => setTimeout(res, delay) );
+}
+
   const { products, error, loading }= productState;
   useEffect(() => {
 
     dispatch(getAllProducts())
+    if (!localStorage.getItem('currentUser')){
+      timeout(1000);
+      notify('',"Fill Up Every Field Correctly",400)
+      window.location.href='/login'
+    }
   
   }, [])
-  
+  const notify = (callId,msg,timex) => {
+
+    if(callId==='' || callId==='passNotMatch'){
+      return toast.warning(msg, {position: toast.POSITION.TOP_CENTER,autoClose:timex})
+    }
+  }
+ 
   return (
     <div>
         <div className='row justify-content-center homescreenContainer'>

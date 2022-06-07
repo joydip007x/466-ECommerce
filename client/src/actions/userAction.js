@@ -25,7 +25,7 @@ export const loginUser=(user)=>async dispatch=>{
         console.log("userActionLogin",response)
         dispatch({type:'USER_LOGIN_SUCCESS',payload:response.data})
         localStorage.setItem('currentUser',JSON.stringify(response.data))
-        await delay(1500);
+        await delay(1000);
         window.location.href='/'
     }
     catch(error){
