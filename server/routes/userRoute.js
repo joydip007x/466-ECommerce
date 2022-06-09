@@ -31,6 +31,7 @@ router.post("/login",async(req,res)=>{
                 isAdmin : user[0].isAdmin,
                 _id: user[0]._id
             }
+            
             res.send(CurrentUser);
         }
         else{

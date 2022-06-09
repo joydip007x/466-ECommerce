@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import {Modal} from 'react-bootstrap'
 import { useDispatch,useSelector } from 'react-redux'
 import {addToCart} from '../../actions/cartActions'
-
+import {checkUser,notify} from '../../views/Homescreen'
 export default function Product({product}) {
   
   const [ quantity , setQuantity]= useState(1)
@@ -25,7 +25,8 @@ export default function Product({product}) {
   const dispatch= useDispatch();
 
   function addToCartHandle(){
-     dispatch(addToCart(product,quantity,varient!='null' ? varient:defaultVarient));
+    if (!localStorage.getItem('currentUser')){ return checkUser()}
+    dispatch(addToCart(product,quantity,varient!='null' ? varient:defaultVarient));
   }
 
   return (

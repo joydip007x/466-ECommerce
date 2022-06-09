@@ -10,31 +10,20 @@ export default function Homescreen() {
   const dispatch=useDispatch()
 
   const productState= useSelector( state=>state.getAllProductsReducer)
-
-  function timeout(delay) {
-    return new Promise( async res => setTimeout(res, delay) );
-}
-
   const { products, error, loading }= productState;
+
+  
+
   useEffect(() => {
 
     dispatch(getAllProducts())
-    if (!localStorage.getItem('currentUser')){
-      timeout(1000);
-      notify('',"Fill Up Every Field Correctly",400)
-      window.location.href='/login'
-    }
+    checkUser()
   
   }, [])
-  const notify = (callId,msg,timex) => {
-
-    if(callId==='' || callId==='passNotMatch'){
-      return toast.warning(msg, {position: toast.POSITION.TOP_CENTER,autoClose:timex})
-    }
-  }
+ 
  
   return (
-    <div>
+    <div>   <ToastContainer limit={1} />
         <div className='row justify-content-center homescreenContainer'>
 
           { loading ? (<div class="load_hold"> <div class="dots-bars-3">  </div></div>): 
@@ -52,4 +41,19 @@ export default function Homescreen() {
         </div>
     </div>
   )
+}
+export const notify = (callId,msg,timex) => {
+
+  if(callId==='noUser'){return toast.error(msg, {position: toast.POSITION.TOP_CENTER,autoClose:timex})}
+  if(callId==='redirect'){return toast.info(msg, {position: toast.POSITION.TOP_RIGHT,autoClose:timex})}
+}
+export const checkUser=()=>{
+  if (!localStorage.getItem('currentUser')){
+  
+    setTimeout(() =>   window.location.href='/login', 6000);
+    notify('noUser',"Please Login First",1000)
+    notify('redirect',"You will be redirected to Login Page",2000)
+
+
+  }
 }

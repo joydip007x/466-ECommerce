@@ -5,10 +5,11 @@ import { addToCart,deleteFromCart } from '../actions/cartActions';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Button } from 'react-bootstrap';
+import { checkUser } from './Homescreen';
 
 export default function CartScreen() {
 
-
+  checkUser();
   const notify = (callId,msg) => {
 
     toast.clearWaitingQueue({containerId:'default'});

@@ -170,6 +170,8 @@ input:focus{
 .whole_navbar{
   padding-block-end:90px !important;
   width: min-content !important;
+  /* margin-top: -365px !important;
+  margin-left: -768px !important; */
 }
 .homescreenContainer{
   margin-right: 0% !important;

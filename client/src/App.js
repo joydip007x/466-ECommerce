@@ -9,7 +9,8 @@ import Homescreen from './views/Homescreen';
 import CartScreen from './views/CartScreen';
 import UserLogin from './views/UserLogin';
 import UserRegister from './views/UserRegister';
-
+import UserBank from './views/UserBank';
+import UserUIDCheck from './views/UserUIDCheck/UserUIDCheck';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
           <Route path="/cart" exact component={CartScreen} />
           <Route path="/register" exact component={UserRegister} />
           <Route path="/login" exact component={UserLogin} />
+          <Route path="/registerUID" exact component={UserBank} />
+          <Route path="/uidCheck" exact component={UserUIDCheck} />
+
       </BrowserRouter>
     </div>
   );
