@@ -65,7 +65,7 @@ export default function UserBank() {
                          successy && !loadingy && (notify('reg',"BankUID Verification Successful",900) )
                          
                       }
-                     <input type={'bankUID'} placeholder="bankUID" className='form-control'
+                     <input type={'BankUID'} placeholder="Bank User Identification No." className='form-control'
                       value={bankUID}  onChange={(e)=>setbankUID(e.target.value)} required/>
                      <input type={'password'} placeholder="Password" className='form-control' 
                       value={secretKey}  onChange={(e)=>setsecretKey(e.target.value)} required/>
@@ -78,6 +78,9 @@ export default function UserBank() {
               </div>
               {/* <a href='/register' id='clicktoLog'> <b>New</b> User ? Create an Account! </a> */}
           </div>
+          <p id="clause_for_user"> We need bank details from you to proceed with your orders and payment in future  </p>
+          <p id="clause_for_user2"> you'll be using <b>Email</b> : <b>{currentUser.email}</b> to open this bank account</p>
+
       </div>
   )
 }

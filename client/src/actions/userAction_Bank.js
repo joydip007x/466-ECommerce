@@ -23,8 +23,17 @@ export const findBankUser=(user)=>async dispatch=>{
         // console.log('FRONTEND  getUID : ',user)
         const response=await axios.get('/bankAPI/users/getUID', {params: {user: user}})
         console.log('BANK getUID : ',response.data)
-        dispatch({type:'USER_FIND_BANK_SUCCESS'})
-        localStorage.setItem('currentUserUID',JSON.stringify(response.data))
+        if(response.data ){
+         dispatch({type:'USER_FIND_BANK_SUCCESS'})
+         localStorage.setItem('currentUserUID',JSON.stringify(response.data))
+         await delay(2500);
+         window.location.href='/'
+        }
+        else { 
+            dispatch({type:'USER_FIND_BANK_FAILED',payload: response})
+            await delay(2500);
+            window.location.href='/registerUID'
+        }
     }
     catch(error){
         dispatch({type:'USER_FIND_BANK_FAILED',payload: error})

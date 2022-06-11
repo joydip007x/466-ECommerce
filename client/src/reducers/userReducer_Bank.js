@@ -30,11 +30,13 @@ export const findBankUserReducer= (state={},action)=>{
         case 'USER_FIND_BANK_REQUEST': return state;
         case 'USER_FIND_BANK_SUCCESS': return {
 
-            CurrentUserBankUID:action.payload
+            CurrentUserBankUID:action.payload,
+            uidfound: true ,
         }
         case 'USER_FIND_BANK_FAILED': return {
 
-            error:action.payload
+            error:action.payload,
+            uidfound: false,
         
         }
         default : return state;

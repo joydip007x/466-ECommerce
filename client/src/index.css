@@ -400,3 +400,14 @@ custom_h1{
    color: #FDEFF4;
    
 }
+#clause_for_user{
+
+   margin-top: 30% !important;
+   font-family: 'Helvetica Neue' !important;
+}
+#clause_for_user2{
+
+  padding-top: -10% !important;
+  font-family: 'monospace'  ;
+ 
+}
