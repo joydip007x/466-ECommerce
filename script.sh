@@ -1,1 +1,1 @@
- zip -r Zip.zip ./client ./server -x '*node_modules*' '*.git*'
+ zip -r Zip.zip ./client ./server ./server_bank -x '*node_modules*' '*.git*'
