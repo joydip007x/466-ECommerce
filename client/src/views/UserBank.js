@@ -62,7 +62,7 @@ export default function UserBank() {
                         <div class="load_hold" > <div class="dots-bars-3">  </div></div>
                       }
                       {
-                         successy && !loadingy && (notify('reg',"BankUID Verification Successful",900) )
+                         successy && !loadingy && (notify('reg',"BankUID Verification Successful,",1520) )
                          
                       }
                      <input type={'BankUID'} placeholder="Bank User Identification No." className='form-control'

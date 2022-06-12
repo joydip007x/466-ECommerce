@@ -16,11 +16,7 @@ export default function Navbar() {
     <div className="whole_navbar">
       <nav className="navbar nav_component navbar-expand-lg  shadow-lg p-3 mb-5   ">
         <a className="navbar-brand" href="/">
-          <b style={title_style}>W</b>ill
-          <b style={title_style}> I</b>
-          <b style={space_keep}>""</b>
-          <b style={title_style}>S</b>ell
-          <b style={title_style}> T</b>omato?
+          <b style={title_style}>C</b>SE-466
         </a>
            <button
           className="navbar-toggler"
