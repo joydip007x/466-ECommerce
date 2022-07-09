@@ -19,7 +19,7 @@ export default function Checkout({subtotal}) {
          shippingAddress
          token={tokenHander}
          currency='BDT'
-         stripeKey='pk_test_51LIeDmSDHEcZVYyiCaLHfTvYEyMS66I9Kxjpu08HyBsFU9YW8Ly2jCYpaMN1ocpwtcOyN3G6JaR52V7ku0DiJ1Io00fZletYZl'
+         stripeKey='pk_test_51LJdoPD9PVEyJI4UvvDlPGKKTlwUQOYffUqygRZU8snRITH4WQoCGQwsZWEdubhMNfxplKJAlBN4Mdg6BfBMzk0g00ADD0ottW'
 
         >
 

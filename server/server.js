@@ -5,7 +5,7 @@ const app = express();
 
 const ProductsRoute = require('./routes/productRoute')
 const UserRoute = require('./routes/userRoute')
-
+const OrderRoute = require('./routes/orderRoute')
 app.use(express.json())
 
 
@@ -15,6 +15,7 @@ app.get("/",(req,res)=>{
 
 app.use('/storeAPI/products',ProductsRoute)
 app.use('/storeAPI/users/',UserRoute)
+app.use('/storeAPI/orders/',OrderRoute)
 
 const port = process.env.PORT || 8000;
 
