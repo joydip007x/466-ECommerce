@@ -329,11 +329,15 @@ custom_h1{
 }
 .btn_checkout{
 
-  height: min-content;
-  width:  auto;
+  height: 40px;
+  width:  105px;
   position: absolute!important;
-  left: 40%;
-  top: 50%;
+  left: 43%;
+  top: 52%;
+  background-color: red;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: larger;
+  color: #FDEFF4;
   transform: translateY(100%);
 
 }

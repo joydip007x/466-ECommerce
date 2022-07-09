@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Button } from 'react-bootstrap';
 import { checkUser } from './Homescreen';
+import Checkout from '../components/Checkout/Checkout';
 
 export default function CartScreen() {
 
@@ -121,7 +122,7 @@ export default function CartScreen() {
            <div className='col-md-4 flex-container subtotal text-right'>
 
                   <h1 className='type3_text'>Subtotal : { subtotal} Bdt/=</h1>
-                  <Button className=' btn_checkout'>Check Out</Button>
+                  <Checkout subtotal={subtotal} />
            </div>
 
             }
