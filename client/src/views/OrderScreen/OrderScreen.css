@@ -1,0 +1,30 @@
+
+h1{
+
+    font-size: 15px !important;
+    font-family:  serif;
+}
+
+ch1{
+
+    font-family:  monospace;
+    font-weight: 600;
+}
+
+h2{
+
+    font-size: 30px !important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+.pp{
+    background-color: rgb(215, 37, 28);
+    margin: 15px;
+    color: whitesmoke;
+    padding-top: 5px;
+}
+
+.pp2{
+
+    color: white;
+}

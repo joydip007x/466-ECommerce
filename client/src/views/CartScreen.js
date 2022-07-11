@@ -55,7 +55,8 @@ export default function CartScreen() {
               { 
                 cartItems.length ==0  && 
                 <div> 
-                  <h3 id='noItemsinCart'>No items in your Cart. <br></br>Add Some from, Homepage</h3> 
+                  <h3 id='noItemsinCart'>No items in your Cart. Add Something from Homepage</h3> 
+                  <h3 id='noItemsinCart2'>or Visit <a href= '/orders' > My Orders </a> for recent order info</h3> 
                 </div> 
                 
               }

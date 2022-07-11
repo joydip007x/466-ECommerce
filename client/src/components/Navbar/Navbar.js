@@ -52,8 +52,8 @@ export default function Navbar() {
               </a>
               <ul class="dropdown-menu"  aria-labelledby="dropdownMenu">
                 <a><button class="dropdown-item" type="button"  
-                onClick={()=>{ window.location.href='/cart'}}
-                href="/cart">Orders</button></a>
+                onClick={()=>{ window.location.href='/orders'}}
+                href="/orders">Orders</button></a>
                 <a><button class="dropdown-item" type="button"
                 onClick={()=>dispatch(logoutUser())}
                 >LogOut</button></a>

@@ -101,11 +101,26 @@ input:focus{
 }
 #noItemsinCart{
    
-  font-family:Montserrat !important;
-  font-size: medium;
-  font-weight: bolder;
-  margin-top: 150px !important;
+  font-family:monospace !important;
+  font-size: 30px;
+  font-weight: lighter;
+  margin-top: 220px !important;
 
+}
+#noItemsinCart2{
+   
+  font-family:monospace !important;
+  font-size: 30px;
+  font-weight: lighter;
+  margin-top: 15px !important;
+
+}
+#noItemsinCart:hover{
+   
+  
+  font-weight: 600 !important;
+  color: green !important;
+  
 }
 #cartPageIconTrash{
   color:red;

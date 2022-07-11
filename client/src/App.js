@@ -11,6 +11,7 @@ import UserLogin from './views/UserLogin';
 import UserRegister from './views/UserRegister';
 import UserBank from './views/UserBank';
 import UserUIDCheck from './views/UserUIDCheck/UserUIDCheck';
+import OrderScreen from './views/OrderScreen/OrderScreen';
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
           <Route path="/login" exact component={UserLogin} />
           <Route path="/registerUID" exact component={UserBank} />
           <Route path="/uidCheck" exact component={UserUIDCheck} />
-
+          <Route path="/orders" exact component={OrderScreen} />
       </BrowserRouter>
     </div>
   );
