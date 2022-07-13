@@ -2,13 +2,18 @@ import React from 'react'
 import { useSelector,useDispatch} from 'react-redux'
 // import bootstrap from '../../../node_modules/bootstrap/dist/js/bootstrap.bundle.js'
 import { logoutUser } from '../../actions/userAction'
-
+import {logoutAdmin} from '../../actions/adminAction'
 export default function Navbar() {
 
   const cartState = useSelector(state=>state.cartReducer)
   const userState = useSelector(state=>state.loginUserReducer)
+  const adminState = useSelector(state=>state.verifyAdminReducer)
   const {currentUser}= userState
+  const {currentAdmin}= adminState
+
   const dispatch= useDispatch()
+
+  console.log("Dispatch ",currentAdmin,currentUser)
 
   const title_style={fontWeight:"bold",fontSize:"25px"  }
   const space_keep={visibility: 'hidden'}
@@ -43,13 +48,18 @@ export default function Navbar() {
 
           <ul className="navbar-nav ms-auto">
           
-            { currentUser ? 
+            { (currentUser || currentAdmin) ? 
             (
 
               <div class="dropdown">
               <a class="userBtn dropdown-toggle  "  id="dropdownMenu2" data-bs-toggle="dropdown" >
-              <i className="fa fa-user" ></i>{currentUser.name.slice(0,6)}
+              {currentUser? <i className="fa fa-user" ></i> :<i class="fa-brands fa-adn"></i> }
+              {currentUser? currentUser.name.slice(0,6) : "Admin" }
               </a>
+
+
+            {
+              currentUser? 
               <ul class="dropdown-menu"  aria-labelledby="dropdownMenu">
                 <a><button class="dropdown-item" type="button"  
                 onClick={()=>{ window.location.href='/orders'}}
@@ -58,7 +68,20 @@ export default function Navbar() {
                 onClick={()=>dispatch(logoutUser())}
                 >LogOut</button></a>
                 {/* <li><button class="dropdown-item" type="button">Something else here</button></li> */}
+              </ul> :
+              
+              <ul class="dropdown-menu"  aria-labelledby="dropdownMenu">
+                <a><button class="dropdown-item" type="button"  
+                onClick={()=>{ window.location.href='/orders'}}
+                href="/orders">Orders</button></a>
+                <a><button class="dropdown-item" type="button"
+                onClick={()=>dispatch(logoutAdmin())}
+                >LogOut</button></a>
+                {/* <li><button class="dropdown-item" type="button">Something else here</button></li> */}
               </ul>
+
+            }
+
             </div>
               
 
@@ -70,14 +93,15 @@ export default function Navbar() {
             </li>
             
             }
+
+          {currentUser?
             <li className="nav-item" id="nav_link_cart">
               <a className="nav-link " href="/cart" >
               Cart 
               <i className="fa fa-shopping-cart" ></i>
                  { cartState.cartItems.length }
               </a>
-            </li>
-
+            </li>: "***"}
            
             
           </ul>

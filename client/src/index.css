@@ -69,6 +69,13 @@ input:focus{
    font-size: 15px !important;
    color:  red !important;
 }
+.fa-adn{
+
+   margin-right: 10px !important;
+   margin-top: 4px !important;
+   font-size: 18px !important;
+   color:  rgb(243, 75, 2) !important;
+}
 #nav-home-icon{
   transform: translateX(-50%);
   left: 50%;

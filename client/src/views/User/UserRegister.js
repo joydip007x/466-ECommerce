@@ -3,7 +3,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch,useSelector } from 'react-redux';
 
-import { registerUser } from '../actions/userAction';
+import { registerUser } from '../../actions/userAction';
+import {checkLoggedAsAdmin} from '../Homescreen';
 
 export default function UserRegister() {
   
@@ -22,6 +23,7 @@ export default function UserRegister() {
     }
   }
   
+  checkLoggedAsAdmin() ;
   const dispatch=useDispatch()
 
   const {loading,success}= useSelector( state=>state.registerUserReducer);

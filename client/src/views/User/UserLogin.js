@@ -3,7 +3,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch,useSelector } from 'react-redux';
 
-import { loginUser } from '../actions/userAction';
+import { loginUser } from '../../actions/userAction';
+import {checkLoggedAsAdmin} from '../Homescreen';
 
 export default function UserLogin() {
 
@@ -15,6 +16,7 @@ export default function UserLogin() {
 
   useEffect(() => {
     
+      checkLoggedAsAdmin();
       if (localStorage.getItem('currentUser')){
 
         setTimeout(this, 500)

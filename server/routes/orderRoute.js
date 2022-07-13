@@ -75,5 +75,31 @@ router.get('/getuserorders', async(req, res) => {
 
 })
 
+router.get('/getAllOrders', async(req, res) => {
+
+    try {
+        const orders = await Order.find()
+        res.send(orders)
+    } catch (error) {
+        return res.status(400).json({message: error})
+    }
+
+})
+
+router.post("/VerifyAOrder",async(req, res) => {
+
+    const orderid= req.body.orderid;
+    console.log("OK Id = "+ orderid);
+    try {
+        
+         const res=await Order.findByIdAndUpdate({_id:orderid},{updatedAt:"abcd"}).exec();
+         console.log(res)
+
+    } catch (error) {
+
+         return res.status(400).json({message: error})
+    }
+
+})
 
 module.exports= router
