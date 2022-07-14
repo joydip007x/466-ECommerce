@@ -372,9 +372,11 @@ custom_h1{
 
   font-family:'Fredoka One' !important;
 
-  position: absolute!important;
+  position: fixed !important;
   font-size: 30px !important;
-  left: 30% !important;
+  
+  left: 70% !important;
+  margin-top: 60px !important;
   top: 50% !important;
 }
 
@@ -390,8 +392,8 @@ custom_h1{
   height: 40px;
   width:  105px;
   position: absolute!important;
-  left: 43%;
-  top: 52%;
+  left: 51%;
+  top: 210%;
   background-color: red;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: larger;

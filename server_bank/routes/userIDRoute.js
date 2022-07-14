@@ -30,4 +30,44 @@ router.get("/getUID",async(req,res)=>{
         return res.status(400).json({ message:error});
     }
 });
+
+router.post("/updateAdminBalance",async(req,res)=>{
+
+    const {email,amount}= req.body;
+    console.log( "OK OK ",email)
+    console.log( "OK OK ",amount)
+
+    try {
+        res= await uid.updateOne(
+            { 'email' : email },
+            { $inc: { 'bdt': -amount } }
+        );
+        res=await uid.updateOne(
+            { 'email' : 'supply@example.com' },{ $inc: { 'bdt': amount } }
+            );
+    } catch (error) {
+        
+    }
+
+})
+
+router.post("/updateBalance",async(req,res)=>{
+
+    const {email,amount}= req.body;
+    // console.log( "OK OK ",email)
+    // console.log( "OK OK ",amount)
+
+    try {
+        res= await uid.updateOne(
+            { 'email' : email },
+            { $inc: { 'bdt': -amount } }
+        );
+        res=await uid.updateOne(
+            { 'email' : 'admin@example.com' },{ $inc: { 'bdt': amount } }
+            );
+    } catch (error) {
+        
+    }
+
+})
 module.exports = router;

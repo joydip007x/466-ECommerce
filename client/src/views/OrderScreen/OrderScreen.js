@@ -2,7 +2,7 @@ import React,{Component,useState} from 'react'
 import { useDispatch,useSelector } from 'react-redux' 
 import { useEffect } from 'react'
 import { getUserOrders } from '../../actions/orderActions'
-import {getAllOrders,verifyAOrder} from '../../actions/adminAction'
+import {getAllOrders,verifyAOrder,updateAdminBalance} from '../../actions/adminAction'
 import { checkUser } from '../Homescreen';
 import {Modal} from 'react-bootstrap'
 
@@ -11,6 +11,8 @@ import './OrderScreen.css'
 export default function OrderScreen () {
 
   const dispatch = useDispatch()
+  const adminState = useSelector(state=>state.verifyAdminReducer)
+  const {currentAdmin}= adminState
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -18,8 +20,11 @@ export default function OrderScreen () {
     
     console.log('Accpeted'+order._id); 
     dispatch(verifyAOrder({orderid:order._id}))
+    dispatch(updateAdminBalance(currentAdmin[0].email,order.orderAmount))
     setShow(false);
   }
+
+  
 
   const handleShow = () => setShow(true);
 

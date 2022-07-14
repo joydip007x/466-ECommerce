@@ -61,10 +61,35 @@ export const verifyAOrder=(orderid)=>async dispatch=>{
         const response = await axios.post('/storeAPI/orders/VerifyAOrder',orderid)
         console.log(response)
         dispatch({type:'VERIFY_A_ORDER_SUCCESS', payload: response.data})
+        
         window.location.href='/orders'
+        
 
     } catch (error) {
         dispatch({type:'VERIFY_A_ORDER_FAILED' , payload:error})
+    }
+
+}
+
+export const updateAdminBalance =(email,amount) => async dispatch=>{
+
+    try {
+        console.log("adminAction Up ",email,amount );
+        const accUpdate = await axios.post('/bankAPI/users/updateAdminBalance',{email,amount})
+        
+    } catch (error) {
+        
+    }
+
+}
+export const updateBalance =(email,amount) => async dispatch=>{
+
+    try {
+        // console.log("adminAction Up ",email,amount );
+        const accUpdate = await axios.post('/bankAPI/users/updateBalance',{email,amount})
+        
+    } catch (error) {
+        
     }
 
 }

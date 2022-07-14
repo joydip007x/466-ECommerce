@@ -123,8 +123,8 @@ export default function CartScreen() {
            cartItems.length !=0  && 
            <div className='col-md-4 flex-container subtotal text-right'>
 
-                  <h1 className='type3_text'>Subtotal : { subtotal} Bdt/=</h1>
-                  <Checkout subtotal={subtotal} />
+                  <h1 className='type3_text subt'>Subtotal : { subtotal} Bdt/=</h1>
+                  <Checkout  subtotal={subtotal} />
            </div>
 
             }
