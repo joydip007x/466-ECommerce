@@ -46,6 +46,7 @@ router.post('/placeOrder', async(req, res)=> {
 
          newOrder.save();
          res.send('Payment Completed')
+         
       }
       else {
           res.send('Payment Failed')
@@ -92,7 +93,7 @@ router.post("/VerifyAOrder",async(req, res) => {
     console.log("OK Id = "+ orderid);
     try {
         
-         const res=await Order.findByIdAndUpdate({_id:orderid},{updatedAt:"abcd"}).exec();
+         const res=await Order.findByIdAndUpdate({_id:orderid},{updatedAt:"abcd",isDelivered:1}).exec();
          console.log(res)
 
     } catch (error) {

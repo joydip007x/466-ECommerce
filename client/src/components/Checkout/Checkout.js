@@ -21,16 +21,17 @@ export default function Checkout({subtotal}) {
 
         { console.log(" return " ,loading) }
         {  loading && (<div class="load"></div>)  }
-        { success && 
+        {  success &&
          (<div class="container">  
             <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
               <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
               <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
             </svg>
-            <b>Payment OK</b>
+            <b id="paytxt">Payment OK</b>
            </div>)
         }
-         
+         {
+         !success && !loading &&
         <StripeCheckout
          amount={subtotal*100}
          shippingAddress
@@ -39,9 +40,9 @@ export default function Checkout({subtotal}) {
          stripeKey='pk_test_51LJdoPD9PVEyJI4UvvDlPGKKTlwUQOYffUqygRZU8snRITH4WQoCGQwsZWEdubhMNfxplKJAlBN4Mdg6BfBMzk0g00ADD0ottW'
 
         >
-
-              <button className='btn_checkout'>Pay Now </button>
+           <button className='btn_checkout'>Pay Now </button> 
         </StripeCheckout>
+        }
    
     </div>
   )

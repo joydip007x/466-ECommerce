@@ -13,6 +13,7 @@ export const placeOrder =(token,subtotal)=> async(dispatch, getState)=>{
         localStorage.removeItem('cartItems');
         await delay(3000);
         window.location.href='/cart'
+        
         // console.log(response.json());
 
     }catch(error){

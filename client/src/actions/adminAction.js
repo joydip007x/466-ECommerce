@@ -61,6 +61,7 @@ export const verifyAOrder=(orderid)=>async dispatch=>{
         const response = await axios.post('/storeAPI/orders/VerifyAOrder',orderid)
         console.log(response)
         dispatch({type:'VERIFY_A_ORDER_SUCCESS', payload: response.data})
+        window.location.href='/orders'
 
     } catch (error) {
         dispatch({type:'VERIFY_A_ORDER_FAILED' , payload:error})

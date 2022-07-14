@@ -48,20 +48,21 @@ export default function CartScreen() {
       <ToastContainer limit={1} containerId="default"/>
         <div className='row justify-content-center'>
 
-           <div className='col-md-6'>
+           <div className='col-md-6 cartContainer'>
 
-              <h1 id='myCartText'style={{fontSize:"40px"}}>My Cart</h1>
+              <h4 id='myCartText' >My Cart</h4>
+              <hr id="allhr"></hr>
 
-              { 
-                cartItems.length ==0  && 
-                <div> 
-                  <h3 id='noItemsinCart'>No items in your Cart. Add Something from Homepage</h3> 
+              {
+              cartItems.length ==0  ?
+                <div id="noItemDiv"> 
+                  <h3 id='noItemsinCart'>No items in your Cart. Visit the <a href='/'>Homepage</a></h3> 
                   <h3 id='noItemsinCart2'>or Visit <a href= '/orders' > My Orders </a> for recent order info</h3> 
-                </div> 
+                </div> :
                 
-              }
+              
 
-              {cartItems.map(item=>{
+              (cartItems.map(item=>{
 
                 /*default prize = Price of First Variant of the Product */
                const defaultPrize=JSON.stringify(item.prices[0]).split(',')[0].split(':')[1];  
@@ -113,9 +114,9 @@ export default function CartScreen() {
               
               </div>
 
-              })}
+              }))
               
-           
+            }
             </div>
            
            { 

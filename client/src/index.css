@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@00&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -113,6 +118,35 @@ input:focus{
   font-weight: lighter;
   margin-top: 220px !important;
 
+}
+#allhr{
+  
+  position: relative!important;
+  left: 50%;
+  transform: translate(-50%);
+  /* width: 1500px !important; */
+  color: rgb(0, 0, 0) !important;
+  height: 2px !important;
+  
+}
+#noItemDiv{
+
+  
+}
+.cartContainer{
+
+  
+}
+#myCartText{
+  
+  position: relative!important;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 10px !important;
+  margin-bottom: 15px !important;
+  font-size: 30px !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  
 }
 #noItemsinCart2{
    
@@ -257,6 +291,7 @@ html_banner{
 .flex-container{
 
    display: flex !important;
+   
 }
 
 .flex_class_option{
@@ -335,11 +370,12 @@ custom_h1{
 }
 .type3_text{
 
-  font-family: 'Koulen', cursive;  
+  font-family:'Fredoka One' !important;
+
   position: absolute!important;
-  font-size: 30px;
-  left: 30%;
-  top: 50%;
+  font-size: 30px !important;
+  left: 30% !important;
+  top: 50% !important;
 }
 
 .subtotal{

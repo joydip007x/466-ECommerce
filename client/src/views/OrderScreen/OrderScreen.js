@@ -45,6 +45,8 @@ export default function OrderScreen () {
 
   return (
     <div className='orderScreenHolder'>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
        { 
           !logState ? 
           (<h2 style={{fontSize: '35px'}}>My Orders </h2>) : 
@@ -66,12 +68,12 @@ export default function OrderScreen () {
 
                               return <div>
                                 <h1> {item.name}[ {item.varient}*{item.quantity}]= {item.price}</h1>
-
                                 </div>
                             })}
                               
                          </div>
                          {/*  */}
+                         <div class = "vertical"></div>
                           <div className="text-left w-100 m-1 "> 
                            <h2 style={{fontSize:'25px'}} >Address</h2>
                            <h1> Street : {order.shippingAddress.street}</h1>
@@ -97,8 +99,8 @@ export default function OrderScreen () {
                           {/* <h1> Order Id :{ order._id}</h1> */}
                           </div>  
                           <div className="ExtendedOrder"> 
-                          {logState && 
-                          (order.createdAt===order.updatedAt) &&
+                          {logState && order.isDelivered===0 &&
+                          
                           
                           <div /*class="circle small"*/>
                           {/* <h3>GFDA / No. 65</h3> */}
@@ -112,32 +114,47 @@ export default function OrderScreen () {
                             <Modal.Body>
                               <p className="pCname ">{"Customer Name : "+ order.name}</p>
                               <p className="pAdd ">{"Adress : "+order.shippingAddress.street+","+order.shippingAddress.city+","+order.shippingAddress.country+"-"+order.shippingAddress.pincode}</p>
-                              <hr></hr>
+                              <hr id='sphr'></hr>
                               <p className="pAmount ">{"Amount Paid : "+order.orderAmount}</p>
                               <p className="pTrx ">{"Trx Id. : "+order.transactionId}</p>
                               {/* <p id="pAmount ">{"Shipment City Zip Code. "+order.shippingAddress.pincode}</p> */}
                               {/* <p>{"Number of Products"+Object.keys( order.orderItem).length}</p> */}
-                              <hr></hr><hr></hr>
+                              <hr id='sphr'></hr>
                               <p className="pMsg ">{"IF You Confirm this Order  "+
                               " A Supply Request will be sent to supplier with the transaction number "}</p>
 
                             </Modal.Body>
 
                             <Modal.Footer>
-                                <div className="btn-white accpet" onClick={ handleClose}>CLOSE</div>
-                                <div className="btn " onClick={ ()=>handleClose_withConfirm(order) }>Accept</div>
+                                <div className="btn-white accpet clshov" onClick={ handleClose}>CLOSE</div>
+                                <div className="btn nclshov" onClick={ ()=>handleClose_withConfirm(order) }>Accept</div>
 
                             </Modal.Footer>
                           </Modal>
                         </div>
                           }
+                          {
+                            !logState && order.isDelivered===0 &&
+                            <div className='fixarea'>
+                            <i class="fas fa-hourglass fa-xl "aria-hidden="true"></i>
+                            <p id="fixt1">Processing</p>  
+                            </div>
+                          }
                          { /*-------------------*/}
                           {
-                          (order.createdAt!=order.updatedAt) &&
+                           order.isDelivered===2 &&
                           <div className='fixarea'>
                           {logState ? <i class="fa fa-check fa-xl " aria-hidden="true"></i>:
                           <i class="fa fa-smile-o fa-xl" aria-hidden="true"></i>}
-                          {logState ? <p>Supplied</p> : <p>Products Received</p>  }
+                          {logState ? <p id="fixit">Supplied</p> : <p id="fixit">Products Received</p>  }
+
+                          </div>
+                          }
+                           {
+                          order.isDelivered===1 &&
+                          <div className='fixarea'>
+                           <i class="fas fa-cubes"></i>
+                          <p>Under Shipping</p>
 
                           </div>
                           }
