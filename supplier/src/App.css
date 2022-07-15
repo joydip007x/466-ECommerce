@@ -102,6 +102,16 @@ h2{
    width: 100% !important;
 
 }
+#sphr2{
+
+ 
+   color: #000000;
+   height: 6px !important;
+   width: 100% !important;
+   stroke: #000000;
+   stroke-width: 5px;
+
+}
 .clshov:hover{
 
   cursor: pointer !important;
@@ -247,3 +257,9 @@ h2{
   font: var(--fa-font-light);
   content: "\f1ea";
 } */
+
+
+.itemfix{
+
+   min-height: 100px !important;
+}
