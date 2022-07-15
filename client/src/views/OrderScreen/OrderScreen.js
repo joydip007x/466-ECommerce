@@ -6,6 +6,9 @@ import {getAllOrders,verifyAOrder,updateAdminBalance} from '../../actions/adminA
 import { checkUser } from '../Homescreen';
 import {Modal} from 'react-bootstrap'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './OrderScreen.css'
 
 export default function OrderScreen () {
@@ -13,14 +16,26 @@ export default function OrderScreen () {
   const dispatch = useDispatch()
   const adminState = useSelector(state=>state.verifyAdminReducer)
   const {currentAdmin}= adminState
-
+ 
+  const [UIDPass,setUIDPass]=useState("")
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleClose_withConfirm = (order) => { 
     
+    if(UIDPass !=currentAdmin[0].password ){
+      console.log(currentAdmin[0].password," vs You vs ",UIDPass);
+      toast.error("Admin's Credential Doesn't Match",
+       {position: toast.POSITION.TOP_CENTER,autoClose:3000})
+      setUIDPass("")
+      setShow(false);
+      return;
+    }
+    setUIDPass("")
     console.log('Accpeted'+order._id); 
     dispatch(verifyAOrder({orderid:order._id}))
     dispatch(updateAdminBalance(currentAdmin[0].email,order.orderAmount))
+    toast.success("Order Forwared to Supplier "+order._id,
+    {position: toast.POSITION.TOP_RIGHT,autoClose:3000})
     setShow(false);
   }
 
@@ -49,7 +64,8 @@ export default function OrderScreen () {
   },[])
 
   return (
-    <div className='orderScreenHolder'>
+    <div className='orderScreenHolder'>  
+      <ToastContainer limit={2} />
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
        { 
@@ -111,6 +127,7 @@ export default function OrderScreen () {
                           {/* <h3>GFDA / No. 65</h3> */}
                           <button className="btn h1" onClick={handleShow}>CONFIRM ORDER</button>
                           {/*-----------------M--O--D--A--L------------------------*/}
+                          { 
                           <Modal show={show} className='modal modal_window' >
                             <Modal.Header closeButton onClick={handleClose}>
                               <Modal.Title className="pTname ">{"Order No.-"+order._id.slice(4)}</Modal.Title>
@@ -127,6 +144,17 @@ export default function OrderScreen () {
                               <hr id='sphr'></hr>
                               <p className="pMsg ">{"IF You Confirm this Order  "+
                               " A Supply Request will be sent to supplier with the transaction number "}</p>
+                              <p className="pMsg2 ">{"Also "}{<a id="amountSP"> {order.orderAmount} </a> }{" /= BDT will be "}{
+                              " Deducted From Admin's Bank Account "}</p>
+                             <hr id='sphr'></hr>
+                             <div class="center">
+                              <div class="float-input">
+                                <label>Admin's BankUID Password</label>
+                                <input type="password" placeholder="Enter" 
+                                value={UIDPass}  onChange={(e)=>setUIDPass(e.target.value)} required
+                                />
+                              </div>
+                            </div>
 
                             </Modal.Body>
 
@@ -136,6 +164,7 @@ export default function OrderScreen () {
 
                             </Modal.Footer>
                           </Modal>
+                          }
                         </div>
                           }
                           {

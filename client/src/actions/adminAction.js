@@ -8,8 +8,7 @@ export const verifyAdmin=(admin)=>async dispatch=>{
     try{
         const response=await axios.get('/storeAPI/admin/verifyAdmin', {params: {admin: admin}})
         console.log('admin getUID : ',response.data)
-        if(response.data ){
-
+        if(response.data.length ){
          dispatch({type:'ADMIN_LOGIN_SUCCESS',payload:response.data})
          localStorage.setItem('currentAdmin',JSON.stringify(response.data))
          localStorage.removeItem('currentUser');

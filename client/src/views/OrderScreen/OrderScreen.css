@@ -22,6 +22,12 @@
     font-size: 16px  !important;
 
 }
+.pMsg2{
+
+  font-family: 'Roboto Slab';
+  font-size: 13px  !important;
+
+}
 .accpet{
 
   
@@ -180,4 +186,42 @@ h2{
   margin-bottom: -15px;
   position:relative;
   left: 27%;
+}
+#amountSP{
+   font-size: 22px;
+   font-weight: 900 ;
+}
+
+/***--------------------*/
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px ;
+  background-color: #ffffff;
+}
+
+.float-input {
+  position: relative;
+  height: 68px;
+  width: 390px !important;
+  font-family: monospace;
+}
+.float-input input {
+  border: 1px solid red;
+  font-family: monospace;
+  width: 100%;
+  height: 100%;
+  padding: 0px 12px 0px 16px;
+  font-size: 16px;
+  outline: none;
+}
+.float-input label {
+  font-family: monospace;
+  position: absolute;
+  left: 17px;
+  font-size: 18px;
+  background-color: #ffffff;
 }

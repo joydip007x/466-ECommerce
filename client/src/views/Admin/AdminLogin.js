@@ -65,15 +65,15 @@ export default function AdminLogin() {
         successx && !loadingx && (notify('reg',"Login As Admin Successful",2000) )
       }
       <div class="center">
-        <h1>Admin Login</h1>
+        <h1 className='fixtex1'>Admin Login</h1>
         <form>
           <div class="inputbox">
-            <input type="text"
+            <input type="text " id='fixBg1'
              value={email}  onChange={(e)=>setEmail(e.target.value)} required/>
               <span>Email</span>
           </div>
           <div class="inputbox">
-            <input type="password"  value={password}  
+            <input type="password"  value={password}   id='fixBg2'
             onChange={(e)=>setPass(e.target.value)} required/>
               <span>Password</span>
           </div>

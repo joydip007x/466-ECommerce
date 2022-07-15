@@ -10,7 +10,11 @@
   background: linear-gradient(90deg, #fff, rgb(222, 221, 221));
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
+.fixtex1{
+   
+  margin-top: -290px;
+  margin-left: 60px;
+}
 h1{
   font-family:  'Arial Narrow Bold', sans-serif !important;
 }
@@ -21,22 +25,34 @@ h1{
   color: #fff !important;
   font-family: 'Courier New', Courier, monospace !important;
 }
+#fixBg1{
+  background:  linear-gradient(90deg, #fff,rgba(222, 221, 221, 0.62)) !important;
+
+}
+#fixBg2{
+  background:  linear-gradient(180deg, #fff, rgb(239, 222, 222)) !important;
+
+}
 .center {
-  position: relative;
+  
   padding: 50px 50px;
-  background: #fff;
   border-radius: 10px;
+  background: transparent !important;
   
 }
 .center h1 {
   font-size: 2em;
-  border-left: 5px solid dodgerblue;
+  border-left: 5px solid rgb(244, 14, 44);
   padding: 10px;
   color: #000;
   letter-spacing: 5px;
   margin-bottom: 60px;
   font-weight: bold;
   padding-left: 10px;
+}
+.inputbox{
+
+  margin-left: -180px !important;
 }
 .center .inputbox {
   position: relative;
@@ -45,7 +61,7 @@ h1{
   margin-bottom: 50px;
 }
 .center .inputbox input {
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   left: 0;
   width: 100%;
@@ -73,7 +89,7 @@ h1{
   font-size: 1em;
 }
 .center .inputbox [type="button"] {
-  width: 50%;
+  width: 100%;
   background: dodgerblue;
   color: #fff;
   border: #fff;
@@ -86,7 +102,7 @@ h1{
   width: 40px;
   height: 26px;
   /* margin-top: 100px !important; */
-  --c:  linear-gradient(90deg, rgb(255, 0, 0), rgb(130, 0, 237));
+  --c:  linear-gradient(90deg, rgb(255, 0, 0), rgb(248, 17, 17));
   background:
     var(--c) 0    100%,
     var(--c) 50%  100%,
@@ -126,8 +142,8 @@ h1{
   place-items:center;
   box-sizing: border-box;
   position: absolute !important;
-  left: 50%;
-  top: 70.6%;
+  left: 51.5%;
+  top: 65.6%;
   transform: translate(-50%,-50%);
   z-index: 1 !important;
 }

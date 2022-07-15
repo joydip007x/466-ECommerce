@@ -106,7 +106,7 @@ export default function CartScreen() {
                 </div>
 
                 <div>
-                <i className=' fa fa-trash  mt-5 w-100' 
+                <i className=' fa fa-trash  mt-5 w-100 ' 
                   id='cartPageIconTrash' aria-hidden="true" onClick={()=>removeItemCart(item)}>
 
                   </i>
