@@ -1,0 +1,19 @@
+{
+  "name": "server_bank",
+  "version": "1.0.0",
+  "description": "this bank is lamborghini",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.3.6",
+    "react-middleware": "^2.2.4",
+    "react-router": "^6.3.0",
+    "router": "^1.3.7"
+  }
+}

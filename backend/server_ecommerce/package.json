@@ -1,0 +1,20 @@
+{
+  "name": "ecom-466",
+  "version": "1.0.0",
+  "description": "Ecom466 is a webProject of our course",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "007x",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.2.4",
+    "nodemon": "^2.0.15",
+    "router": "^1.3.6",
+    "stripe": "^9.12.0",
+    "uuid": "^8.3.2"
+  }
+}

@@ -1,0 +1,3 @@
+backend/server_bank/node_modules/*
+backend/server_ecommerce/node_modules/*
+backend/server_supplier/node_modules/*
