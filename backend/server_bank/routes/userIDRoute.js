@@ -1,17 +1,24 @@
-const e = require('express');
 const express= require('express');
 const router= express.Router();
+const bcrypt = require('bcryptjs');
 
-const uid = require('../models/userIDModel');
+const User = require('../models/userIDModel');
 
 // Bank ID registration
 router.post("/register",async(req,res)=>{
 
     const {bankUID ,email, password} = req.body;
-    const newUser = new uid({bankUID,email,password});
+    const hashedPassword = await bcrypt.hash(password, 12);
 
     // Creating new ID
     try{
+        const existingUser = await User.findOne({ email });
+
+        if (existingUser) {
+            return res.status(400).json({ message: "User Already Exists!" });
+        }
+
+        const newUser = new User({bankUID,email,password:hashedPassword});
         newUser.save();
         res.status(200).send('User Registered successfully');
     }
@@ -24,10 +31,22 @@ router.post("/register",async(req,res)=>{
 router.post("/login",async(req,res)=>{
 
     const {email,password} = req.body;
-
+    console.log(req.body);
     try{
-        result= await uid.findOne({'email':email},{'password':password});
-        res.status(200).send(result);
+        const existingUser = await User.findOne({ email });
+
+        if (!existingUser) {
+            return res.status(404).json({ message: "User Doesn't Exist!" });
+        }
+
+        const passwordMatch = await bcrypt.compare(password, existingUser.password);
+        console.log(existingUser.password)
+        if (!passwordMatch) {
+
+            return res.status(400).json({ message: "Invalid Credentials" });
+        }
+        
+        res.status(200).send(existingUser);
     }
     catch(error){
         return res.status(400).json({ message:error});
@@ -39,9 +58,9 @@ router.post("/login",async(req,res)=>{
 router.get("/getUID",async(req,res)=>{
 
     const email = req.query.user;
-
+   
     try{
-        result= await uid.findOne({'email':email});
+        result= await User.findOne({'email':email});
         res.status(200).send(result);
     }
     catch(error){
@@ -55,11 +74,11 @@ router.post("/updateAdminBalance",async(req,res)=>{
     const {email,amount}= req.body;
     
     try {
-        res= await uid.updateOne(
+        await User.updateOne(
             { 'email' : email },
             { $inc: { 'bdt': -amount } }
         );
-        res=await uid.updateOne(
+        await User.updateOne(
             { 'email' : 'supply@example.com' },{ $inc: { 'bdt': amount } }
             );
         return res.status(200);
@@ -76,11 +95,11 @@ router.post("/updateBalance",async(req,res)=>{
     const {email,amount}= req.body;
 
     try {
-        res= await uid.updateOne(
+        await User.updateOne(
             { 'email' : email },
             { $inc: { 'bdt': -amount } }
         );
-        res=await uid.updateOne(
+        await User.updateOne(
             { 'email' : 'admin@example.com' },{ $inc: { 'bdt': amount } }
         );
         return res.status(200);
@@ -95,10 +114,10 @@ router.post("/updateBalance",async(req,res)=>{
 // Find a users bank id
 router.get("/findbyUid",async(req,res)=>{
 
-    const allx = req.query.user;
+    const user = req.query.user;
    
     try{
-        result= await uid.findById(allx);
+        result= await User.findById(user);
         console.log("FINDBYid : "+result);
         res.status(200).send(result);
     }

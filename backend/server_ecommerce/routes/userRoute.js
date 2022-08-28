@@ -1,47 +1,62 @@
-const express= require('express')
-const router= express.Router();
+const bcrypt = require('bcryptjs');
+const express = require('express');
+const router = express.Router();
 
 const User = require('../models/userModel');
 
 // Register a new user
-router.post("/register",async(req,res)=>{
+router.post("/register", async (req, res) => {
 
-    const {name,email, password} = req.body;
-    const newUser = new User({name,email,password});
+    const { name, email, password } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 12);
 
     // Adding user to database
-    try{
+    try {
+        const existingUser = await User.findOne({ email });
+
+        if (existingUser) {
+            return res.status(400).json({ message: "User Already Exists!" });
+        }
+
+        const newUser = new User({ name, email, password: hashedPassword });
         newUser.save();
         res.status(200).send('User Registered successfully!');
     }
-    catch(error){
-        return res.status(400).json({ message:error});
+    catch (error) {
+        return res.status(400).json({ message: error });
     }
 });
 
 
 // Existing user Login
-router.post("/login",async(req,res)=>{
-    const {email,password}= req.body;
-    console.log(req.body);
-    try{
-        const user= await User.find({email,password});
+router.post("/login", async (req, res) => {
+    const { email, password } = req.body;
 
-        if(user.length){
-            const CurrentUser={
-                name:user[0].name,
-                email:user[0].email,
-                isAdmin : user[0].isAdmin,
-                _id: user[0]._id
-            };
-            
-            res.status(200).send(CurrentUser);
+    try {
+        const existingUser = await User.findOne({ email });
+
+        if (!existingUser) {
+            return res.status(404).json({ message: "User Doesn't Exist!" });
         }
-        else{
-            res.status(400).json({message:"You failed to login"});
+
+        const passwordMatch = await bcrypt.compare(password, existingUser.password);
+
+        if (!passwordMatch) {
+
+            return res.status(400).json({ message: "Invalid Credentials" });
         }
+
+        const CurrentUser = {
+            name: existingUser.name,
+            email: existingUser.email,
+            isAdmin: existingUser.isAdmin,
+            _id: existingUser._id
+        };
+
+        res.status(200).send(CurrentUser);
+
     }
-    catch(error){
+    catch (error) {
         res.status(400).json(error);
     }
 });

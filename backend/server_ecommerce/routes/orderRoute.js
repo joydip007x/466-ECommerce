@@ -95,7 +95,7 @@ router.post("/verifyOrder",async(req, res) => {
     console.log("Order Id = "+ orderid);
 
     try {
-         const res=await Order.findByIdAndUpdate({_id:orderid},{updatedAt:time,isDelivered:1}).exec();
+         await Order.findByIdAndUpdate({_id:orderid},{updatedAt:time,isDelivered:1}).exec();
          return res.status(200);
 
     } catch (error) {
