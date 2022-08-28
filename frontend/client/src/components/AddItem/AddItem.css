@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap");
+
+
+#addpdtxt{
+    color: #171A2B !important;
+}
+.signup-container {
+  display: grid;
+  grid-template-areas: "left right";
+  max-width: 900px;
+  margin-left: 25%;
+  
+}
+
+.left-container {
+  background: transparent;
+  overflow: hidden;
+  padding: 40px 0 0 0;
+  position: relative;
+  text-align: center;
+  width: 300px;
+  height: 500px;
+}
+.left-container h1 {
+  color: rgba(0, 0, 0, 0.8);
+  display: inline-block;
+  font-size: 24px;
+}
+.left-container h1 i {
+  background: #F7B1AB;
+  border-radius: 50%;
+  color: #807182;
+  font-size: 24px;
+  margin-right: 5px;
+  padding: 10px;
+  transform: rotate(-45deg);
+}
+
+.puppy{
+
+    object-fit: cover !important;
+    width: 550px !important;
+    height: 650px !important;
+    overflow: scroll;
+   
+}
+.left-container .puppy {
+
+  bottom: -5px;
+  text-align: center;
+  height: fit-content !important;
+}
+.left-container .puppy:before {
+  background: transparent;
+  content: "";
+  height: 50%;
+  left: 0;
+  
+}
+.left-container img {
+  filter: sepia(100%);
+  width: 100%;
+  height: 100%;
+  height: fit-content;
+  object-fit: fill;
+}
+
+.right-container {
+  background: #cbc5c500;
+  display: grid;
+  grid-template-areas: "." ".";
+  width: 500px;
+}
+.right-container h1:nth-of-type(1) {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 28px;
+  font-weight: 600;
+}
+.right-container .set {
+  display: flex;
+  font-weight: bold;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.right-container input {
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 4px;
+  height: 38px;
+  line-height: 38px;
+  padding-left: 5px;
+}
+.right-container input, .right-container label {
+  color: rgba(15, 14, 14, 0.8);
+}
+.right-container header {
+  padding: 40px;
+}
+.right-container label, .right-container input, .right-container .pets-photo {
+  width: 176px;
+}
+.right-container .pets-photo {
+  align-items: center;
+  display: grid;
+  grid-template-areas: ". .";
+}
+.right-container .pets-photo button {
+  border: none;
+  border-radius: 50%;
+  height: 38px;
+  margin-right: 10px;
+  outline: none;
+  width: 38px;
+}
+.right-container .pets-photo button i {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 16px;
+}
+.right-container .pets-weight .radio-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.right-container footer {
+  align-items: center;
+  background: #fff;
+  display: grid;
+  padding: 5px 40px;
+}
+.right-container footer button {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  height: 38px;
+  line-height: 38px;
+  width: 100px;
+  border-radius: 19px;
+  font-family: "Montserrat", sans-serif;
+}
+.right-container footer #back {
+  background: #fff;
+  transition: 0.2s all ease-in-out;
+}
+.right-container footer #back:hover {
+  background: #171A2B;
+  color: white;
+}
+.right-container footer #next {
+  background-color: #2668ed !important;
+
+  border: 1px solid transparent;
+  color: #fff;
+}
+.right-container footer #next:hover {
+  background: #171A2B;
+}
+.set3{
+    margin-top: 40px !important;
+    margin-bottom: 10px !important;
+}
+.vn1{
+
+    margin-top: 20px !important;
+    width: min-content !important;
+    margin-bottom: 15px !important;
+}
+#titleatt{
+
+    width: 100%;
+    font-size :19px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.fa-project-diagram{
+   margin-bottom: 4%;
+   margin-top: 0%;
+   overflow: auto;
+   background-color: #4171d2 !important;
+   color: #e2e8f2 !important;
+
+}
+#back{
+  background-color: #56585c !important;
+
+}
+#vntxt{
+
+    margin-left: 145px;
+    background-color: #a4b3d1 !important;
+  }
+#vptxt{
+     margin-top: -10px;
+     background-color: #80a2e7 !important;
+   }
+#nn1{
+    text-overflow: scroll !important;
+    overflow: visible;
+    white-space: nowrap; 
+    width: 430px !important;
+}
+.set2{
+   
+    display: flex;
+    font-weight: bold;
+    /* font-family: monospace; */
+    width: 200px !important;
+}
+#prod-name{
+    display: block;
+    width: 450px !important;
+}
+#prod-des{
+    margin-top: 5px !important;
+    display: block;
+    width: 450px !important; 
+}
+.pets-name label, .pets-breed label, .pets-birthday label, .pets-gender label, .pets-spayed-neutered label, .pets-weight label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.radio-container {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  display: inline-block;
+  padding: 5px;
+}
+
+.radio-container label {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  transition: 0.2s all ease-in-out;
+  width: 80px;
+}
+
+.radio-container input[type=radio] {
+  display: none;
+}
+
+.radio-container input[type=radio]:checked + label {
+  background: #f01400;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
