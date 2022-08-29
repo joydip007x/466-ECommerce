@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { loginUser } from '../../actions/userAction';
 import { checkLoggedAsAdmin } from '../Homescreen';
+import './UserLogin.css'
 
 export default function UserLogin() {
 
@@ -52,6 +53,7 @@ export default function UserLogin() {
 
 
   }
+
   return (
     <div className="App">
 
@@ -59,6 +61,14 @@ export default function UserLogin() {
       <div className='row justify-content-center'>
         <div>
           <form class="login" >
+          {
+            loadingx && 
+            <div class="load_hold2"> <div class="dots-bars-3">  </div></div>
+           }
+            {
+              successx && !loadingx && (notify('reg',"Login   Successful",2000) )
+            } 
+
             <t1> Log In</t1>
             <input type="text" placeholder="Email"
               value={email} onChange={(e) => setEmail(e.target.value)} required

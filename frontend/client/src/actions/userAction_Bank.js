@@ -9,6 +9,7 @@ export const registerBankUser=(user)=>async dispatch=>{
         const response=await axios.post('/bankAPI/users/register', user)
         console.log('BANK userAction: ',response)
         dispatch({type:'USER_REGISTER_BANK_SUCCESS'})
+        window.location.href='/uidCheck';
     }
     catch(error){
         console.log("USER ACTION ERROR", error);

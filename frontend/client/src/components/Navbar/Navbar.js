@@ -4,6 +4,7 @@ import { useSelector,useDispatch} from 'react-redux'
 import { logoutUser } from '../../actions/userAction'
 import {logoutAdmin} from '../../actions/adminAction'
 
+import './Navbar.css'
 export default function Navbar() {
 
   const cartState = useSelector(state=>state.cartReducer)
@@ -22,7 +23,7 @@ export default function Navbar() {
     <div className="whole_navbar">
       <nav className="navbar nav_component navbar-expand-lg  shadow-lg p-3 mb-5   ">
         <a className="navbar-brand" href="/">
-          <b style={title_style}>C</b>SE-466
+          <b style={title_style}>E</b>-COMMERCE
         </a>
            <button
           className="navbar-toggler"
@@ -93,17 +94,9 @@ export default function Navbar() {
 
             ):   /* ################ */
             <div class="dropdown">
-              <a class="userBtn dropdown-toggle  "  id="dropdownMenu2" data-bs-toggle="dropdown" >
-              <i class="fa fa-user"></i> 
-              LOGIN  
-              </a>
-              <ul class="dropdown-menu"  aria-labelledby="dropdownMenu">
+              <i class="fa fa-user" href="/login"   onClick={()=>{ window.location.href='/login'}}></i> 
+              <h8 href="/login"   onClick={()=>{ window.location.href='/login'}}>LOGIN  </h8>
                
-                <a><button class="dropdown-item" type="button"  
-                href="/admin"   onClick={()=>{ window.location.href='/admin'}} >as Admin</button></a>
-                <a><button class="dropdown-item" type="button"
-                 href="/login"   onClick={()=>{ window.location.href='/login'}}>as User</button></a>
-              </ul>  
             </div>
             
             }

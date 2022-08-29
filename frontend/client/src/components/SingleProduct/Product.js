@@ -3,6 +3,11 @@ import {Modal} from 'react-bootstrap'
 import { useDispatch,useSelector } from 'react-redux'
 import {addToCart} from '../../actions/cartActions'
 import {checkUser,notify} from '../../views/Homescreen'
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 export default function Product({product}) {
   
   const [ quantity , setQuantity]= useState(1)
@@ -12,6 +17,11 @@ export default function Product({product}) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+
+  const notify = (callId, msg, timex) => {
+    toast.info(msg, { position: toast.POSITION.TOP_CENTER, autoClose: timex })
+  }
 
   const randomInt=Math.floor(Math.random() * (10 - 1 + 1)) + 1;
   const defaultVarient=product.varients[0]
@@ -27,11 +37,13 @@ export default function Product({product}) {
   function addToCartHandle(){
     if (!localStorage.getItem('currentUser')){ return checkUser()}
     dispatch(addToCart(product,quantity,varient!='null' ? varient:defaultVarient));
+    ///toast.info("Adding "+product.name+" to Cart", { position: toast.POSITION.TOP_CENTER, autoClose: 500 })
   }
 
   return (
 
     <div className="Spizza_container  p-3 mb-5  rounded" >
+            <ToastContainer limit={1} />
       <h1 className="html_h1">{product.name}</h1>
       <img src={product.image} className="img-fluid single_el_img" onClick={handleShow} />
 

@@ -8,7 +8,7 @@ router.get('/getAllOrders', async(req, res) => {
 
     try {
         const orders = await Order.find();
-        res.status(200).send(orders);
+        return res.status(200).send(orders);
     } catch (error) {
         return res.status(400).json({message: error});
     }
@@ -23,7 +23,7 @@ router.post("/ShippingAOrder",async(req, res) => {
 
     try {
          const res=await Order.findByIdAndUpdate({_id:orderid},{isDelivered:2}).exec();
-         return res.status(200);
+         return res.status(200).send(orderid);
 
     } catch (error) {
          return res.status(400).json({message: error})

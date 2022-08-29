@@ -46,11 +46,11 @@ export const verifyAOrderReducer = (state={ orders:[] }, action) =>{
     switch(action.type){
 
         case 'VERIFY_A_ORDER_REQ':
-            return { loading:true,...state }
+            return { loadx:true,sucx:false,...state }
         case 'VERIFY_A_ORDER_SUCCESS':
-            return { loading:false} 
+            return { loadx:false,sucx:true,orders:action.payload} 
         case 'VERIFY_A_ORDER_FAILED':
-            return { loading:false}
+            return { loadx:false,sucx:false,error:action.payload}
             
         default: return state
     }

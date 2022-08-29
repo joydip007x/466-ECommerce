@@ -72,14 +72,14 @@ router.get("/getUID",async(req,res)=>{
 router.post("/updateAdminBalance",async(req,res)=>{
 
     const {email,amount}= req.body;
-    
+    console.log(" SUPPLIER UPDATE BALANCE : ",email + "   "+amount)
     try {
         await User.updateOne(
             { 'email' : email },
             { $inc: { 'bdt': -amount } }
         );
         await User.updateOne(
-            { 'email' : 'supply@example.com' },{ $inc: { 'bdt': amount } }
+            { 'email' : 'supplier@example.com' },{ $inc: { 'bdt': amount } }
             );
         return res.status(200);
 
@@ -92,7 +92,7 @@ router.post("/updateAdminBalance",async(req,res)=>{
 // Updating user balance after a purchase
 router.post("/updateBalance",async(req,res)=>{
 
-    const {email,amount}= req.body;
+    const {email,amount,token}= req.body;
 
     try {
         await User.updateOne(
@@ -102,7 +102,7 @@ router.post("/updateBalance",async(req,res)=>{
         await User.updateOne(
             { 'email' : 'admin@example.com' },{ $inc: { 'bdt': amount } }
         );
-        return res.status(200);
+        return res.status(200).send(token.id);
 
     } catch (error) {
         return res.status(400).json({message:error});

@@ -18,7 +18,7 @@ export default function Checkout({subtotal}) {
   function tokenHander(token) {
     console.log(token)
     dispatch(placeOrder(token,subtotal))
-    dispatch(updateBalance(currentUser.email,subtotal))
+    dispatch(updateBalance(currentUser.email,subtotal,token))
     {console.log("EFFECT " ,loading)}
 
   }

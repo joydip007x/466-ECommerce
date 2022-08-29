@@ -14,7 +14,7 @@ export const getAllOrdersReducer = (state={ orders:[] }, action) =>{
     }
 
 }
-export const ShippingAOrderReducer = (state={  }, action) =>{
+export const ShippingAOrderReducer = (state={ orders:[]  }, action) =>{
          
 
     switch(action.type){
@@ -22,9 +22,9 @@ export const ShippingAOrderReducer = (state={  }, action) =>{
         case 'GET_SHIP_ORDER_REQ':
             return { loading:true,...state }
         case 'GET_SHIP_ORDER_SUCCESS':
-            return { loading:false} 
+            return { loading:false,orders:action.payload} 
         case 'GET_SHIP_ORDER_FAILED':
-            return { loading:false}
+            return { loading:false,orders:action.payload}
             
         default: return state
     }

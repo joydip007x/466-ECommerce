@@ -18,7 +18,10 @@ export default function AddItem() {
   const[ var2p,setVar2p ]=useState(0);
   const[ var3p,setVar3p ]=useState(0);
 
-
+  const { loading, success } = useSelector(state => state.addNewProductsReducer);
+  const notify = (callId, msg, timex) => {{
+      toast.success(msg, { position: toast.POSITION.TOP_CENTER, autoClose: timex })}
+  }
   function reqItemADD(){
   
   if(!var1 || !name || !desc || !cat || !Img || !var1p ){
@@ -26,9 +29,9 @@ export default function AddItem() {
     return;
   }
 
-  if( (!var2 || !var3 || !var2p || !var3p )){
-    toast.info("Incomplete/Invalid Field is ignored", {position: toast.POSITION.TOP_CENTER,autoClose: 2000})
-  }
+  // if( (!var2 || !var3 || !var2p || !var3p )){
+  //   toast.info("Incomplete/Invalid Field is ignored", {position: toast.POSITION.TOP_CENTER,autoClose: 2000})
+  // }
 
 
 
@@ -57,7 +60,7 @@ export default function AddItem() {
 
   return (
     <div>       
-       <ToastContainer limit={3} containerId="default"/>
+       <ToastContainer limit={2} containerId="default"/>
 
        <div class='signup-container'>
   <div class='left-container'>
@@ -108,7 +111,9 @@ export default function AddItem() {
           />
         </div>
       </div>
-     
+      {
+       success && !loading && (notify('reg', "Added Product successfully", 2000))
+      }
       <div class='pets-weight'>
       <div class="input ">
        <div class="input-group-prepend vn1">

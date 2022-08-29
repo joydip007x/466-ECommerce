@@ -11,7 +11,6 @@ function App() {
 
   const [email, setEmail] = useState('');
   const [password, setPass] = useState('');
-  const [clk,setClk]=useState(0);
 
   const dispatch = useDispatch()
   const { loadingx, successx, currentBankUser } = useSelector(state => state.loginUIDReducer)
@@ -30,12 +29,7 @@ function App() {
 
 
   }
-  function refpage(){
-
-    const bankuser = { email:currentBankUser.email, password:currentBankUser.password }
-    dispatch(loginUID(bankuser))
-
-  }
+   
   function logout() {
     
     localStorage.removeItem('currentBankUser');
@@ -43,12 +37,32 @@ function App() {
   }
   const pp = localStorage.getItem('currentBankUser')
   console.log(pp + '       x' + currentBankUser);
+  
+  // useEffect(()=>{
 
+  //   if(email && password){
+
+  //   const bankuser = { email, password }
+  //   dispatch(loginUID(bankuser))
+
+  //   }
+
+  // },[])
+  useEffect(
+    () => {
+      const bankuser = { email, password }
+      let timer1 = setTimeout(() =>  dispatch(loginUID(bankuser)),  5000);
+    
+      return () => {
+        clearTimeout(timer1);
+      };
+    } );
+    
   return (
     <div className="App">
       <ToastContainer limit={2} />
 
-      {(!(currentBankUser ) && !clk) ?
+      {!(currentBankUser )  ?
         (
           <div>
             <form class="login" >
@@ -63,7 +77,7 @@ function App() {
             </form>
           </div>
         ) :  ////////////////////////////////////////////////////////////
-
+        
         <div class="padding wow">
           <div class="col-md-8">
             <div class="card"> <img class="card-img-top" src="https://img.freepik.com/premium-vector/online-banking-technology-concept-illustration-bank-electric-circuit-lines-background_387612-43.jpg?w=1480" alt="Card image cap" />
@@ -80,8 +94,8 @@ function App() {
                   <div class="col-lg-4 col-md-4 m-t-20">
                     <h3 class="m-b-0 font-light" id="textt">{currentBankUser.bankUID}</h3><small>Account No.</small>
                   </div>
-
-                   <button onClick={ refpage  } id="ref">Refresh Page</button><br></br>
+                  {/* <i class="fa-solid fa-rotate"></i> */}
+                   <button id="ref">Refresh Page</button><br></br>
                   <button id='blog' onClick={logout } >LOG OUT</button>
                 </div>
               </div>

@@ -15,6 +15,7 @@ export default function OrderScreen() {
 
   const dispatch = useDispatch()
   const adminState = useSelector(state => state.verifyAdminReducer)
+  const{ loadx,sucx}= useSelector(state=>state.verifyAOrderReducer);
   const { currentAdmin } = adminState
 
   const [UIDPass, setUIDPass] = useState("")
@@ -34,10 +35,11 @@ export default function OrderScreen() {
     dispatch(verifyAOrder({ orderid: order._id }))
     dispatch(updateAdminBalance(currentAdmin[0].email, order.orderAmount))
     toast.success("Order Forwared to Supplier " + order._id,
-      { position: toast.POSITION.TOP_RIGHT, autoClose: 3000 })
+      { position: toast.POSITION.TOP_CENTER, autoClose: 2000 })
     setShow(false);
   }
-
+  
+  console.log("TEST "+ loadx + " : "+ sucx);
 
 
   const handleShow = () => setShow(true);
@@ -72,6 +74,7 @@ export default function OrderScreen() {
           (<h2 style={{ fontSize: '35px' }}>My Orders </h2>) :
           (<h2 style={{ fontSize: '35px' }}>Check Orders </h2>)
       }
+      
       {
         (
           <div className='row justify-content-center'>
@@ -122,7 +125,7 @@ export default function OrderScreen() {
 
                       <div>
 
-                        <button className="btn h1" onClick={handleShow}>CONFIRM</button>
+                        <button className="btn h1 clrme" onClick={handleShow}>CONFIRM</button>
 
                         {
                           <Modal show={show} className='modal modal_window' >

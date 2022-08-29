@@ -21,18 +21,20 @@ function App() {
   const handleClose = () => setShow(false);
   const handleClose_withConfirm = (order) => { 
 
-    if(UIDPass !="supplier"){
-      // console.log(currentAdmin[0].password," vs You vs ",UIDPass);
-      toast.error("Suppliers's Credential Doesn't Match",
-       {position: toast.POSITION.TOP_CENTER,autoClose:3000})
-      setUIDPass("")
-      setShow(false);
-      return;
-    }
+
+    toast.success("Product Supplied for OrderID- "+order._id,
+    {position: toast.POSITION.TOP_CENTER,autoClose:2000})
+    // if(UIDPass !="supplier"){
+    //   // console.log(currentAdmin[0].password," vs You vs ",UIDPass);
+    //   toast.error("Suppliers's Credential Doesn't Match",
+    //    {position: toast.POSITION.TOP_CENTER,autoClose:3000})
+    //   setUIDPass("")
+    //   setShow(false);
+    //   return;
+    // }
     console.log('Accpeted'+order._id); 
     dispatch(ShippingAOrder({orderid:order._id}))
-    toast.success("Product Supplied for OrderID- "+order._id,
-    {position: toast.POSITION.TOP_RIGHT,autoClose:3000})
+   
     setUIDPass("")
     setShow(false);
 
@@ -71,7 +73,7 @@ function App() {
                      <div className="text-left d-flex w-50 m-1 pp2">
                         
                      
-                         <ch1> Transaction Id: { order.transactionId.slice(12)}</ch1>
+                         <ch1> Transaction Id:        { order.transactionId.slice(13)}</ch1><br></br>
                           <ch1> Order Amount : { order.orderAmount} </ch1>
                           <br></br>
                           <ch1> Date : { order.createdAt.slice(0,10)} </ch1>
@@ -115,7 +117,7 @@ function App() {
                           {/* <h3>GFDA / No. 65</h3> */}
                           <button className="btn h1" onClick={handleShow}>Supply Product</button>
                           {/*-----------------M--O--D--A--L------------------------*/}
-                          <Modal show={show} className='modal modal_window' >
+                          <Modal show={show} className='modal modal_window ' >
                             <Modal.Header closeButton onClick={handleClose}>
                               <Modal.Title className="pTname ">{"Order No.-"+order._id.slice(4)}</Modal.Title>
                             </Modal.Header>
@@ -128,7 +130,7 @@ function App() {
                               <p className="pTrx ">{"Trx Id. : "+order.transactionId}</p>
 
                               <hr id='sphr'></hr>
-                              <div className="itemfix">
+                              <div className="itemfix itemrange">
                               {order.orderItems.map(item=>{
 
                                 return <div >

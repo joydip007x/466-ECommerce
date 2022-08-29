@@ -1,15 +1,5 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap");
-.admin-login {
-  margin: -10px;
-  padding: 0;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: linear-gradient(90deg, #fff, rgb(222, 221, 221));
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+@import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap");
+
 .fixtex1{
    
   margin-top: -290px;
@@ -100,7 +90,7 @@ h1{
 .dots-bars-3 {
   width: 40px;
   height: 26px;
-  --c:  linear-gradient(90deg, rgb(255, 0, 0), rgb(248, 17, 17));
+  --c:  linear-gradient(90deg,  #385898,  #788cb5);
   background:
     var(--c) 0    100%,
     var(--c) 50%  100%,
@@ -140,11 +130,11 @@ h1{
   place-items:center;
   box-sizing: border-box;
   position: absolute !important;
-  left: 51.5%;
-  top: 65.6%;
+  left: 49.9% !important;
+  top: 37.6% !important;
   transform: translate(-50%,-50%);
   z-index: 1 !important;
-} */
+} 
 
 .App {
   text-align: center;

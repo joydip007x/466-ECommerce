@@ -116,8 +116,6 @@ body {
   -moz-transition: background-color 300ms;
   transition: background-color 300ms;
 }
-.login > button:hover {
-  background-color: #01040a !important;}
 
 @-webkit-keyframes wawes {
   from {
@@ -273,10 +271,8 @@ textt{
    height: 40px;
    
 }
-#ref:hover{
-  background-color: #01040a;
-  color: #fff;
-}
+
+
 #blog{
 
   margin-top: 20px ;
@@ -285,8 +281,4 @@ textt{
   background-color: #385898 ;
   color: antiquewhite;  
   font-size: 18px;
-}
-#blog:hover{
-  background-color: #01040a;
-  color: #fff;
 }

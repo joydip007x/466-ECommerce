@@ -96,7 +96,7 @@ router.post("/verifyOrder",async(req, res) => {
 
     try {
          await Order.findByIdAndUpdate({_id:orderid},{updatedAt:time,isDelivered:1}).exec();
-         return res.status(200);
+         return res.status(200).send(orderid);
 
     } catch (error) {
          return res.status(400).json({message: error});

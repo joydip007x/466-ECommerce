@@ -57,12 +57,12 @@ export const verifyAOrder=(orderid)=>async dispatch=>{
     dispatch({type:'VERIFY_A_ORDER_REQ'})
     console.log("Fonrt ",orderid)
     try {
-        const response = await axios.post('/storeAPI/orders/verifyOrder',orderid)
-        console.log(response)
-        dispatch({type:'VERIFY_A_ORDER_SUCCESS', payload: response.data})
-        
-        window.location.href='/orders'
-        
+
+        const response = await axios.post('/storeAPI/orders/verifyOrder',orderid);
+        console.log( "FROMNT ENDD "+ response)
+        dispatch({type:'VERIFY_A_ORDER_SUCCESS', payload: response})
+        await delay(2500);
+        window.location.href='/orders';
 
     } catch (error) {
         dispatch({type:'VERIFY_A_ORDER_FAILED' , payload:error})
@@ -81,11 +81,11 @@ export const updateAdminBalance =(email,amount) => async dispatch=>{
     }
 
 }
-export const updateBalance =(email,amount) => async dispatch=>{
+export const updateBalance =(email,amount,token) => async dispatch=>{
 
     try {
         // console.log("adminAction Up ",email,amount );
-        const accUpdate = await axios.post('/bankAPI/users/updateBalance',{email,amount})
+        const accUpdate = await axios.post('/bankAPI/users/updateBalance',{email,amount,token})
         
     } catch (error) {
         

@@ -22,11 +22,11 @@ export const addNewProductsReducer = (state={ }, action) =>{
     switch(action.type){
 
         case 'CREATE_NEWPROD_REQ':
-            return { loading:true,...state }
+            return { loading:true,success:false,...state }
         case 'CREATE_NEWPROD_SUCCESS':
-            return { loading:false,products:action.payload} 
+            return { loading:false,success:true,products:action.payload} 
         case 'CREATE_NEWPROD_FAILED':
-            return { loading:false,products:action.payload}
+            return { loading:false,success:false,products:action.payload}
             
         default              : return state
     }
