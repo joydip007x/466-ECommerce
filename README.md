@@ -3,7 +3,7 @@
 
 
 <a href="https://youtu.be/o91aPjKT2c0">
-   <img src="https://i.ibb.co/BjXCQCj/ZScreenshot-from-2022-10-08-02-11-25.png" alt="https://youtu.be/o91aPjKT2c0" border="2">
+   <img src="https://i.ibb.co/WyH628G/ZZScreenshot-from-2022-10-08-02-11-25.png" alt="https://youtu.be/o91aPjKT2c0"  border="1">
 </a>
 
 # How To Run This Project :
