@@ -2,8 +2,9 @@
 # Video Presentation :
 
 
-[![](https://img.youtube.com/vi/o91aPjKT2c0/0.jpg)](https://youtu.be/o91aPjKT2c0)
-
+<a href="https://youtu.be/o91aPjKT2c0">
+   <img src="https://i.ibb.co/BjXCQCj/ZScreenshot-from-2022-10-08-02-11-25.png" alt="https://youtu.be/o91aPjKT2c0" border="2">
+</a>
 
 # How To Run This Project :
 **1.** Clone this repository into your local machine. <br/>
