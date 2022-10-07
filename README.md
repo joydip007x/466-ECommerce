@@ -16,30 +16,16 @@
     npm install
     ```
 These commands will install all the necessary node modules for this project.
-3. Now open another terminal, go to the `backend/server_ecommerce` directory and run the command
-```
-nodemon
-```
-4. Open another terminal, go to the `backend/server_bank` directory and run the command
-```
-nodemon
-```
-5. In another terminal, go to the `backend/server_supplier` directory and run the command
+3. Now open another terminal, go to the `backend/server_ecommerce`  and `backend/server_bank` and `backend/server_supplier` directory and run the command in each directory : 
 ```
 nodemon
 ```
 The backend is now up and running
-6. For the client frontend, go to the `frontend/client` directory and run 
+
+4. For the client frontend, go to the `frontend/client`  and `frontend/bank` and `frontend/supplier` directory and run this in each directory
 ```
 npm start
 ```
-6. For the bank frontend, go to the `frontend/bank` directory and run 
-```
-npm start
-```
-6. For the supplier frontend, go to the `frontend/supplier` directory and run 
-```
-npm start
-```
+
 
 The whole project should be running now on different ports of `localhost`
