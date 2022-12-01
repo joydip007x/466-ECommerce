@@ -6,6 +6,29 @@
    <img src="https://i.ibb.co/WyH628G/ZZScreenshot-from-2022-10-08-02-11-25.png" alt="https://youtu.be/o91aPjKT2c0"  border="1">
 </a>
 
+
+# Key Points 
+- 3 Sections. created An **E-Commerce(Client+Admin), A Supplier and A Bank** Site with MERN. 
+- Implemented Interconnecting **API's** of the 3 sections
+- **Stripe-Fronted** for payments
+- **MongoDB** for Database,used 4 Collections for whole project.
+
+- Order Tracking 
+- User can see **3 States** of Products "ordered" , "under shipment " and "Shipped"
+- Admin must approve every order manually and forware to 'Supplier'
+- Suppliers see **2 States** , 'order arrvied' or 'order delivered'
+
+- Admin can **Add new Product** with **varients** and varients price.
+- Every SALES transaction : <br/>
+
+   **==>>** User Checkout using **Online payment**
+   **==>>** **Admin Approves** and Gets SUBTOTAL in his account.
+   **==>>** Forwards Order to **Suppliers and keeps** 20% Incentive 
+   **==>>** Supplier accepts and Order status is 'delivered' 
+
+- Every **User/Admin/Suppliers** can check their Bank Balance in **Bank Server**
+
+
 # How To Run This Project :
 **1.** Clone this repository into your local machine. <br/>
 **2.** Open a terminal by pressing `Crtl+Alt+T` and install the client side dependencies by running this command ```npm install``` <br/>
