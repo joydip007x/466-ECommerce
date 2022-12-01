@@ -27,6 +27,7 @@
    **==>>** Supplier accepts and Order status is 'delivered' 
 
 - Every **User/Admin/Suppliers** can check their Bank Balance in **Bank Server**
+- Product **Click and View** Details
 
 
 # How To Run This Project :
