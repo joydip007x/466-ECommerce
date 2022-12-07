@@ -6,8 +6,11 @@
    <img src="https://i.ibb.co/WyH628G/ZZScreenshot-from-2022-10-08-02-11-25.png" alt="https://youtu.be/o91aPjKT2c0"  border="1">
 </a>
 
+
 # Languages 
 -  **M**ongoDb - **E**xpress.js - **R**eact.js - **N**ode.js -
+
+
 
 # PDF Presentation
 - https://pdfhost.io/v/BXQmeOFNl_Ecommerce
@@ -15,6 +18,11 @@
 # Key Points 
 - 3 Sections. created An **E-Commerce(Client+Admin), A Supplier and A Bank** Site with MERN. 
 - Implemented Interconnecting **API's** of the 3 sections
+##API : 
+<a href="https://ibb.co/album/gMJ08G">
+   <img src="https://i.ibb.co/1rxV91g/api-details.png" alt=""  border="1">
+</a>
+
 - **Stripe-Fronted** for payments
 - **MongoDB** for Database,used 4 Collections for whole project.
 
@@ -30,10 +38,13 @@
    **==>>** **Admin Approves** and Gets SUBTOTAL in his account.
    **==>>** Forwards Order to **Suppliers and keeps** 20% Incentive 
    **==>>** Supplier accepts and Order status is 'delivered' 
-
+ 
 - Every **User/Admin/Suppliers** can check their Bank Balance in **Bank Server**
 - Product **Click and View ** Details
-
+- Purchase Diagram : 
+ <a href="https://ibb.co/album/gMJ08G">
+   <img src="https://i.ibb.co/cvtpgrq/purchase-diagram.png" alt=""  border="1">
+   </a>
 
 # How To Run This Project :
 **1.** Clone this repository into your local machine. <br/>
