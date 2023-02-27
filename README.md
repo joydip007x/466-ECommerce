@@ -1,3 +1,6 @@
+# Target :
+Develop an e-commerce website with inventory, sales functionality with card payment, administrative and client privileges, etc.
+A supplier portal  for  inventory and Orders tracking and a bank for all entities to track their balances. 
 
 # Video Presentation :
 
